@@ -1,0 +1,21 @@
+{
+  "name": "mortar",
+  "version": "0.0.1",
+  "dependencies": {
+    "volo-ghdeploy": "0.0.3",
+    "connect": "~2.4.4",
+    "less-middleware": "~0.1.5",
+    "grunt-contrib":"*",
+    "grunt-contrib-coffee": "~0.3.0"
+  },
+  "amd": {},
+  "volo": {
+    "dependencies": {
+      "zepto": "github:madrobby/zepto/v0.8",
+      "underscore": "github:amdjs/underscore/1.4.1",
+      "backbone": "github:amdjs/backbone/0.9.2",
+      "d3.v3": "github:mbostock/d3/v3.0.5"
+    },
+    "baseUrl": "www/js/lib"
+  }
+}
