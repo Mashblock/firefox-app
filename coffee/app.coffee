@@ -44,11 +44,12 @@ define (require)->
       success: =>
         $(".charts", @).html('')
         _(["Gender Ratio", "Ethnic Groups", "Religious Affiliation"]).each (group)=>
-          data = _(item.get(group)).collect (value, key)-> {value: value, label: key}
-          $(".charts", @).append $("<h2>#{group}</h2>")
-          svg = d3.select(@).select(".charts").append("svg").attr("width",200).attr("height", 200).append("g").attr("transform", "translate(100,100)")
+          if raw_data = item.get(group)
+            data = _(raw_data).collect (value, key)-> {value: value, label: key}
+            $(".charts", @).append $("<h3>#{group}</h3>")
+            svg = d3.select(@).select(".charts").append("svg").attr("width",200).attr("height", 200).append("g").attr("transform", "translate(100,100)")
 
-          g = svg.selectAll(".arc").data(pie(data)).enter().append("g").attr("class", "arc")
+            g = svg.selectAll(".arc").data(pie(data)).enter().append("g").attr("class", "arc")
 
-          g.append("path").attr("d", arc).style "fill", (d)->color(d.value)
+            g.append("path").attr("d", arc).style "fill", (d)->color(d.value)
     return
