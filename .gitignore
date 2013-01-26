@@ -44,3 +44,5 @@ build/config/buildinfo.properties
 www-built
 www-ghdeploy
 .#*
+
+node_modules
